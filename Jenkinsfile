@@ -1,8 +1,5 @@
 #!/usr/bin/env groovy
 
-@Library('CloudOrchestrationLibrary')
-import com.bitbar.Config
-
 env.AWS_PROFILE = 'eu-west-1'
 
 node('aws') {
@@ -10,9 +7,8 @@ node('aws') {
 
     stage('Checkout') {
       git([
-        url: 'git@github.com:bitbar/documentation.git',
+        url: 'https://github.com/bitbar/cloud-testdroid-info-page.git',
         branch: 'master',
-        credentialsId: Config.github.credentialsId,
         poll: true
       ])
     }
